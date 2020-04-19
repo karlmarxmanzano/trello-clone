@@ -7,7 +7,7 @@
         fromColumnIndex: columnIndex
       }"
     >
-      <div class="flex items-center mb-2 font-bold">{{ column.name }}</div>
+      <div class="column-name">{{ column.name }}</div>
       <div class="list-reset">
         <ColumnTask
           v-for="(task, $taskIndex) of column.tasks"
@@ -21,8 +21,8 @@
 
         <input
           type="text"
-          class="block p-2 w-full bg-transparent"
-          placeholder="+ Enter new task"
+          class="column-input"
+          placeholder="+ Add another card"
           @keyup.enter="createTask($event, column.tasks)"
         />
       </div>
@@ -66,5 +66,13 @@ export default {
 .column {
   @apply bg-gray-300 p-2 mr-4 text-left shadow rounded;
   min-width: 350px;
+}
+
+.column-name {
+  @apply flex items-center mb-2 font-bold;
+}
+
+.column-input {
+  @apply text-xs block p-2 w-full bg-transparent;
 }
 </style>

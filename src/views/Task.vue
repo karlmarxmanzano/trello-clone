@@ -1,27 +1,42 @@
 <template>
   <div class="task-view">
-    <div class="flex flex-col flex-grow items-start justify-between px-4">
-      <input
-        type="text"
-        class="p-2 w-full mr-2 block text-xl font-bold"
-        :value="task.name"
-        @change="updateTaskProperty($event, 'name')"
-        @keyup.enter="updateTaskProperty($event, 'name')"
-      />
+    <div class="flex-col flex-grow items-start justify-between px-4">
+      <div class="flex">
+        <input
+          type="text"
+          class="p-2 w-full mr-2 block text-xl font-bold"
+          :value="task.name"
+          @change="updateTaskProperty($event, 'name')"
+          @keyup.enter="updateTaskProperty($event, 'name')"
+        />
+
+        <button @click="close" class="items-end">
+          <unicon name="times"></unicon>
+        </button>
+      </div>
 
       <textarea
-        class="relative w-full bg-transparent px-2 border mt-2 h-64 border-none leading-normal"
+        class="relative w-full bg-transparent px-2 border mt-2 h-64 border-none text-sm leading-normal"
         :value="task.description"
         @change="updateTaskProperty($event, 'description')"
       />
+
+      <input placeholder="Write a comment" class="w-full p-2 text-sm " />
     </div>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
+import closeTaskMixin from '@/mixins/closeTaskMixin'
 
 export default {
+  mixins: [closeTaskMixin],
+  data() {
+    return {
+      comment: ''
+    }
+  },
   computed: {
     ...mapGetters(['getTask']),
     task() {
