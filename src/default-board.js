@@ -10,19 +10,22 @@ export default {
           description: '',
           name: 'Update TailwindCSS in trello-clone project',
           id: uuid(),
-          userAssigned: null
+          userAssigned: null,
+          comments: []
         },
         {
           description: '',
           name: 'Refactor UI design',
           id: uuid(),
-          userAssigned: null
+          userAssigned: null,
+          comments: []
         },
         {
           description: '',
           name: 'Implement Browser Draggable API',
           id: uuid(),
-          userAssigned: null
+          userAssigned: null,
+          comments: []
         }
       ]
     },
@@ -33,13 +36,15 @@ export default {
           description: '',
           name: 'Add new task',
           id: uuid(),
-          userAssigned: null
+          userAssigned: null,
+          comments: []
         },
         {
           description: '',
           name: 'Add new column',
           id: uuid(),
-          userAssigned: null
+          userAssigned: null,
+          comments: []
         }
       ]
     },
@@ -50,7 +55,8 @@ export default {
           description: '',
           name: 'Deploy initial project',
           id: uuid(),
-          userAssigned: null
+          userAssigned: null,
+          comments: []
         }
       ]
     }

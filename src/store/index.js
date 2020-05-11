@@ -30,7 +30,8 @@ export default new Vuex.Store({
       tasks.push({
         name,
         id: uuid(),
-        description: ''
+        description: '',
+        comments: []
       })
     },
     CREATE_COLUMN(state, { name }) {
@@ -42,8 +43,26 @@ export default new Vuex.Store({
     UPDATE_COLUMN(state, { column, key, value }) {
       column[key] = value
     },
+    DELETE_COLUMN(state, { key }) {
+      const columnList = state.board.columns
+
+      columnList.splice(key, 1)
+    },
     UPDATE_TASK(state, { task, key, value }) {
       task[key] = value
+    },
+    DELETE_TASK(state, { columnIndex, key }) {
+      const taskList = state.board.columns[columnIndex].tasks
+      taskList.splice(key, 1)
+    },
+    CREATE_COMMENT(state, { comments, comment }) {
+      comments.push({
+        comment,
+        id: uuid()
+      })
+    },
+    DELETE_COMMENT(state, { comments, key }) {
+      comments.splice(key, 1)
     },
     MOVE_TASK(state, { fromTasks, toTasks, fromTaskIndex, toTaskIndex }) {
       const taskToMove = fromTasks.splice(fromTaskIndex, 1)[0]

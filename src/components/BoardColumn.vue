@@ -7,13 +7,19 @@
         fromColumnIndex: columnIndex
       }"
     >
-      <input
-        type="text"
-        class="column-name"
-        :value="column.name"
-        @change="updateColumn($event, 'name', column)"
-        @keyup.enter="updateColumn($event, 'name', column)"
-      />
+      <div class="flex">
+        <input
+          type="text"
+          class="column-name"
+          :value="column.name"
+          @change="updateColumn($event, 'name', column)"
+          @keyup.enter="updateColumn($event, 'name', column)"
+        />
+
+        <button @click="deleteColumn" class="items-end">
+          <unicon name="times"></unicon>
+        </button>
+      </div>
 
       <ColumnTask
         v-for="(task, $taskIndex) of column.tasks"
@@ -62,7 +68,6 @@ export default {
         key,
         value: e.target.value
       })
-      e.target.value = ''
     },
     createTask(e, tasks) {
       this.$store.commit('CREATE_TASK', {
@@ -70,6 +75,11 @@ export default {
         name: e.target.value
       })
       e.target.value = ''
+    },
+    deleteColumn() {
+      this.$store.commit('DELETE_COLUMN', {
+        key: this.columnIndex
+      })
     }
   }
 }

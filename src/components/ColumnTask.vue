@@ -11,6 +11,11 @@
       :key="task.index"
     >
       <span class="task-name">{{ task.name }}</span>
+
+      <button @click.stop="deleteTask" class="items-end">
+        <unicon name="times"></unicon>
+      </button>
+
     </AppDrag>
   </AppDrop>
 </template>
@@ -36,17 +41,23 @@ export default {
   methods: {
     goToTask(task) {
       this.$router.push({ name: 'task', params: { id: task.id } })
+    },
+    deleteTask(key) {
+      this.$store.commit('DELETE_TASK', {
+        columnIndex: this.columnIndex,
+        key: this.taskIndex
+      })
     }
   }
 }
 </script>
 <style lang="css">
 .task {
-  @apply flex items-center flex-wrap text-sm shadow mb-2 py-2 px-2 bg-white text-gray-900 no-underline cursor-pointer rounded;
+  @apply flex justify-between items-center flex-wrap text-sm shadow mb-2 py-2 px-2 bg-white text-gray-900 no-underline cursor-pointer rounded;
 }
 
 .task-name {
-  @apply w-full flex-shrink-0 text-sm font-medium;
+  @apply flex-grow text-sm font-medium;
 }
 
 .list-enter-active,
