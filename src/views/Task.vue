@@ -15,6 +15,11 @@
         </button>
       </div>
 
+      <button class="flex items-center">
+        <unicon name="trash-alt"></unicon>
+        <p class="text-sm">Delete this task</p>
+      </button>
+
       <textarea
         class="relative w-full bg-transparent px-2 border mt-2 h-64 border-none text-sm leading-normal"
         :value="task.description"

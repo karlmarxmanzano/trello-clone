@@ -39,6 +39,9 @@ export default new Vuex.Store({
         tasks: []
       })
     },
+    UPDATE_COLUMN(state, { column, key, value }) {
+      column[key] = value
+    },
     UPDATE_TASK(state, { task, key, value }) {
       task[key] = value
     },

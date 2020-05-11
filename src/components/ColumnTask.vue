@@ -8,6 +8,7 @@
         fromTaskIndex: taskIndex
       }"
       @click.native="goToTask(task)"
+      :key="task.index"
     >
       <span class="task-name">{{ task.name }}</span>
     </AppDrag>
@@ -46,5 +47,15 @@ export default {
 
 .task-name {
   @apply w-full flex-shrink-0 text-sm font-medium;
+}
+
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.2s;
+}
+.list-enter,
+.list-leave-to {
+  opacity: 0;
+  transform: translateY(10px);
 }
 </style>
