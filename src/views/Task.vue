@@ -1,11 +1,11 @@
 <template>
-  <div class="task-view">
-    <div class="flex-col flex-grow items-start justify-between px-4 task-view-container">
+  <div class="task-view w-10/12 md:w-6/12">
+    <div class="w-full flex-col flex-grow justify-between px-4">
       <div class="flex">
         <input
           type="text"
-          class="flex-grow p-2 block text-xl font-bold bg-transparent"
-          :value="task.name "
+          class="w-full p-2 text-xl font-bold bg-transparent"
+          :value="task.name"
           @change="updateTaskProperty($event, 'name')"
           @keyup.enter="updateTaskProperty($event, 'name')"
         />
@@ -16,7 +16,7 @@
       </div>
 
       <textarea
-        class="relative w-full bg-transparent px-2 border mt-2 h-64 border-none text-sm leading-normal"
+        class="w-full bg-transparent px-2 border mt-2 h-64 border-none text-sm leading-normal"
         :value="task.description"
         @change="updateTaskProperty($event, 'description')"
       />
@@ -82,11 +82,6 @@ export default {
 
 <style>
 .task-view {
-  @apply relative flex flex-row bg-gray-300 inset-0 mx-4 m-32 mx-auto py-4 text-left rounded shadow;
-  max-width: 700px;
-}
-
-.task-view-container {
-  min-width: 350px;
+  @apply mx-auto flex flex-row bg-gray-300 my-auto my-16 py-4 text-left rounded shadow;
 }
 </style>

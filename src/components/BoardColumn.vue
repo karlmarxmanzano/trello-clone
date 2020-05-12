@@ -1,7 +1,7 @@
 <template>
   <AppDrop @drop="moveTaskOrColumn">
     <AppDrag
-      class="column"
+      class="column max-w-sm w-64 md:w-84"
       :transferData="{
         type: 'column',
         fromColumnIndex: columnIndex
@@ -33,7 +33,7 @@
 
       <input
         type="text"
-        class="column-input"
+        class="max-w-sm w-64 md:w-84 column-input"
         placeholder="+ Add another card"
         @keyup.enter="createTask($event, column.tasks)"
       />
@@ -87,9 +87,7 @@ export default {
 
 <style lang="css">
 .column {
-  @apply bg-gray-300 p-2 mr-4 text-left shadow rounded;
-  min-width: 350px;
-  max-width: 350px;
+  @apply bg-gray-300 p-2 mx-2 text-left shadow rounded;
 }
 
 .column-name {
@@ -97,6 +95,6 @@ export default {
 }
 
 .column-input {
-  @apply text-xs block p-2 w-full bg-transparent;
+  @apply text-xs p-2 bg-transparent;
 }
 </style>

@@ -12,6 +12,7 @@
       <div class="board-container-input">
         <input
           type="text"
+          class="max-w-sm w-64 md:w-84 p-2 mr-2 flex-grow rounded bg-gray-300 text-sm "
           placeholder="+ Add new list"
           v-model="newColumnName"
           @keyup.enter="createColumn"
@@ -74,10 +75,5 @@ export default {
 
 .board-container-input {
   @apply flex flex-col relative;
-}
-
-.board-container-input input {
-  @apply p-2 mr-2 flex-grow rounded bg-gray-300 text-sm;
-  min-width: 350px;
 }
 </style>

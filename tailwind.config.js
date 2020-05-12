@@ -4,6 +4,7 @@ module.exports = {
   separator: ':',
   theme: {
     screens: {
+      xs: '320px',
       sm: '640px',
       md: '768px',
       lg: '1024px',
@@ -145,7 +146,11 @@ module.exports = {
       '40': '10rem',
       '48': '12rem',
       '56': '14rem',
-      '64': '16rem'
+      '64': '16rem',
+      '72': '18rem',
+      '76': '19.5',
+      '84': '21rem',
+      '96': '24rem'
     },
     backgroundColor: theme => theme('colors'),
     backgroundPosition: {
