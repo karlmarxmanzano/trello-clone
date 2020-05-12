@@ -33,7 +33,7 @@
 
       <input 
         placeholder="Write a comment" 
-        class="w-full p-2 text-sm" 
+        class="w-full p-2 text-sm rounded" 
         @keyup.enter="createComment($event, task.comments)"
       />
     </div>
