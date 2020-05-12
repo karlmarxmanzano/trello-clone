@@ -1,17 +1,17 @@
 <template>
   <div class="task-view">
-    <div class="flex-col flex-grow items-start justify-between px-4">
+    <div class="flex-col flex-grow items-start justify-between px-4 task-view-container">
       <div class="flex">
         <input
           type="text"
-          class="p-2 w-full mr-2 block text-xl font-bold bg-transparent"
-          :value="task.name"
+          class="flex-grow p-2 block text-xl font-bold bg-transparent"
+          :value="task.name "
           @change="updateTaskProperty($event, 'name')"
           @keyup.enter="updateTaskProperty($event, 'name')"
         />
 
-        <button @click="close" class="items-end">
-          <unicon name="times"></unicon>
+        <button @click="close" class="px-2">
+          <font-awesome-icon icon="times" />
         </button>
       </div>
 
@@ -22,7 +22,6 @@
       />
 
       <p class="text-sm">Comments:</p>
-      <p class="text-sm">{{ task.index }}</p>
 
       <TaskComment
         v-for="(comment, $commentIndex) of task.comments"
@@ -85,5 +84,9 @@ export default {
 .task-view {
   @apply relative flex flex-row bg-gray-300 inset-0 mx-4 m-32 mx-auto py-4 text-left rounded shadow;
   max-width: 700px;
+}
+
+.task-view-container {
+  min-width: 350px;
 }
 </style>

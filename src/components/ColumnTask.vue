@@ -1,7 +1,7 @@
 <template>
   <AppDrop @drop="moveTaskOrColumn">
     <AppDrag
-      class="task"
+      class="group task"
       :transferData="{
         type: 'task',
         fromColumnIndex: columnIndex,
@@ -12,8 +12,8 @@
     >
       <span class="task-name">{{ task.name }}</span>
 
-      <button @click.stop="deleteTask" class="items-end">
-        <unicon name="times"></unicon>
+      <button @click.stop="deleteTask" class="items-end text-gray-400 group-hover:text-gray-600">
+        <font-awesome-icon icon="trash-alt" />
       </button>
 
     </AppDrag>
@@ -53,11 +53,11 @@ export default {
 </script>
 <style lang="css">
 .task {
-  @apply flex justify-between items-center flex-wrap text-sm shadow mb-2 py-2 px-2 bg-white text-gray-900 no-underline cursor-pointer rounded;
+  @apply flex justify-between items-center flex-grow text-sm shadow mb-2 py-2 px-2 bg-white text-gray-900 no-underline cursor-pointer rounded;
 }
 
 .task-name {
-  @apply flex-grow text-sm font-medium;
+  @apply flex-grow text-sm font-medium truncate;
 }
 
 .list-enter-active,

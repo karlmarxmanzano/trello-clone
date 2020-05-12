@@ -68,12 +68,12 @@ export default {
 }
 
 .task-bg {
-  @apply inset-0 absolute;
+  @apply h-screen inset-0 absolute overflow-auto;
   background: rgba(0, 0, 0, 0.5);
 }
 
 .board-container-input {
-  @apply flex flex-col;
+  @apply flex flex-col relative;
 }
 
 .board-container-input input {

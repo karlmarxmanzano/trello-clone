@@ -1,7 +1,12 @@
 <template>
-  <div class="comment">
-    <span class="comment-desc">{{ comment.comment }}</span>
-    <button @click="deleteComment(commentIndex)">Remove</button>
+  <div>
+    <div class="items-center flex-wrap text-sm p-4 bg-white text-gray-900 no-underline cursor-pointer rounded">
+      <p class="break-words w-full  text-sm font-medium-desc">{{ comment.comment }}</p>
+    </div>
+
+    <button @click="deleteComment">
+      <p class="text-xs mt-0 pl-2 text-gray-600 hover:text-gray-700">Remove</p>
+    </button>
   </div>
 </template>
 
@@ -23,10 +28,10 @@ export default {
     }
   },
   methods: {
-    deleteComment(taskIndex, key) {
+    deleteComment(key) {
       this.$store.commit('DELETE_COMMENT', {
         comments: this.comments,
-        key
+        key: this.commentIndex
       })
     }
   }
@@ -34,14 +39,6 @@ export default {
 </script>
 
 <style scoped>
-.comment {
-  @apply flex justify-between items-center flex-wrap text-sm mb-2 p-4 bg-white text-gray-900 no-underline cursor-pointer rounded;
-}
-
-.comment-desc {
-  @apply flex-grow text-sm font-medium;
-}
-
 .list-enter-active,
 .list-leave-active {
   transition: all 0.2s;

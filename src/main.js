@@ -3,15 +3,14 @@ import './plugins/fontawesome'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import AppButton from './components/AppButton'
 
-import Unicon from 'vue-unicons'
-import { uniTimes, uniTrash, uniCommentAlt } from 'vue-unicons/src/icons'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-Unicon.add([uniTimes, uniTrash, uniCommentAlt])
-Vue.use(Unicon)
+library.add(fas)
 
-Vue.component('AppButton', AppButton)
+Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.config.productionTip = false
 

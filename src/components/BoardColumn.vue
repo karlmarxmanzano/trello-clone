@@ -7,7 +7,7 @@
         fromColumnIndex: columnIndex
       }"
     >
-      <div class="flex">
+      <div class="group flex items-center">
         <input
           type="text"
           class="column-name"
@@ -16,8 +16,8 @@
           @keyup.enter="updateColumn($event, 'name', column)"
         />
 
-        <button @click="deleteColumn" class="items-end">
-          <unicon name="times"></unicon>
+        <button @click="deleteColumn" class="items-end text-gray-400 pl-2 group-hover:text-gray-600">
+          <font-awesome-icon icon="trash-alt" />
         </button>
       </div>
 
@@ -89,6 +89,7 @@ export default {
 .column {
   @apply bg-gray-300 p-2 mr-4 text-left shadow rounded;
   min-width: 350px;
+  max-width: 350px;
 }
 
 .column-name {
