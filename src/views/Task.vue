@@ -4,7 +4,7 @@
       <div class="flex">
         <input
           type="text"
-          class="w-full p-2 text-xl font-bold bg-transparent"
+          class="w-full p-2 font-bold bg-transparent text-xs md:text-xl"
           :value="task.name"
           @change="updateTaskProperty($event, 'name')"
           @keyup.enter="updateTaskProperty($event, 'name')"
