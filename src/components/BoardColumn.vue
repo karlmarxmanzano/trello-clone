@@ -33,7 +33,7 @@
 
       <input
         type="text"
-        class="max-w-sm w-64 md:w-84 column-input"
+        class="column-input"
         placeholder="+ Add another card"
         @keyup.enter="createTask($event, column.tasks)"
       />
@@ -95,6 +95,6 @@ export default {
 }
 
 .column-input {
-  @apply text-xs p-2 bg-transparent;
+  @apply w-full text-xs p-2 bg-transparent;
 }
 </style>
